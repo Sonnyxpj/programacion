@@ -1,24 +1,23 @@
 def tamaño(img):
-    autor = img.readline().rstrip("\n")
+    dif = img.readline().rstrip("\n")
     
-    texto = []
+    autor = []
     linea = img.readline().rstrip("\n")
     if linea[0] == "#":
-        texto.append(linea)
+        autor.append(linea)
         linea = img.readline().rstrip("\n")
-    
+    print(autor)
     tam = linea.split(" ")
-
-    ancho = int(tam[0])
-    largo = int(tam[1])
+    #ancho = (tam[0])
+    #largo = (tam[1])
     
-    return tam,ancho,largo
-
+  
+    #return tam#,largo,ancho
 
 def grises(img):
     rango = int(img.readline().rstrip())
 
-    print(rango)
+    #print(rango)
 
     pixels = []
 
@@ -30,7 +29,7 @@ def grises(img):
                 pixels.append(int(pixel))
     #print(pixels)
     
-
+"""
     if entrada == str(1):
         
         binaria = []
@@ -50,10 +49,10 @@ def grises(img):
                 binaria.append((oscurecer))
     print(binaria)
     return rango
-
+"""
 def crear(tam,grises,binaria):
     sal = open("auto2.pgm","w")
-    sal.write(P2+"\n")
+    sal.write("P2"+"\n")
     sal.write("#Hecho por Sonny")
     sal.write(ancho+ " "+alto)
     sal.write(rango+"\n")
@@ -65,10 +64,15 @@ def crear(tam,grises,binaria):
 
 if __name__ == "__main__":
     img = open("auto.pgm","r")
-    entrada = input("ingrese un valor\n")
+    #entrada = input("ingrese un valor\n")
     tamaño(img)
-    grises(img)
+    #print(tamaño(img)[:])
+   
+
+    #grises(img)
+    #a = tamaño()
+    #print(a)
     
-
-
     img.close()
+
+    
