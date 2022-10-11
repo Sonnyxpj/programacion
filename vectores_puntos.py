@@ -1,4 +1,5 @@
 import	os
+import math
 
 # Vectores de puntos 
 # Hecho por Benjamín Garrido
@@ -46,9 +47,10 @@ def depurador_lista2d(coordenadas):
     for y in coordenadas[0]:
         eje_y.append(y[1])
     
-    print(eje_x)
-    print()
-    print(eje_y)
+    #print(eje_x)
+    #print()
+    #print(eje_y)
+    return eje_x, eje_y
 
 def depurador_lista3d(coordenadas):
     eje_x = []
@@ -105,6 +107,26 @@ def depurador_lista5d(coordenadas):
     print(eje_w)
     print()
     print(eje_t)
+
+def distancia_2d(valores2d):
+    x = valores2d[0]
+    y = valores2d[1]
+    #print(x[1], x[0])
+    #print(y[1], y [0])
+    valor = math.sqrt((int(x[1])-int(x[0]))**2+(int(y[1])-int(y[0]))**2)
+    
+    
+    #q = 1
+    #while q <=len(x):
+    #    valor = math.sqrt((int(x[1])-int(x[0]))**2+(int(y[1])-int(y[0]))**2)
+    #    q += 1
+
+    
+
+    
+    
+    #print(x[0],x[1])
+    print(valor)
     
 
 if __name__ == "__main__":
@@ -112,8 +134,10 @@ if __name__ == "__main__":
     datos = leer_archivo()
     lista = almacenar_datos(datos)
     coordenadas = dimension(lista)
-    depurador_lista2d(coordenadas)
-
+    valores2d = depurador_lista2d(coordenadas)
+    distancia_2d(valores2d)
+    #prueba = np.sqrt((2-2)**2+(2-3)**2)
+    
 
     
 
