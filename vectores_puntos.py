@@ -264,10 +264,3 @@ if __name__ == "__main__":
         print("Menor distancia euclidiana en 4 dimenciones es:",mini4d)
         print("Menor distancia euclidiana en 5 dimenciones es:",miin5d)
         entrada = 0
-    
-
-    
-
-    
-    
-    
