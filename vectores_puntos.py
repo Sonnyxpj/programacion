@@ -257,9 +257,8 @@ if __name__ == "__main__":
     mini3d = menor_dis_3d(resultados3d)
     mini4d = menor_dis_4d(resultados4d)
     miin5d = menor_dis_5d(resultados5d)
-    while entrada == "1":
+    if entrada == "1":
         print("Menor distancia euclidiana en 2 dimenciones es:",mini2d)
         print("Menor distancia euclidiana en 3 dimenciones es:",mini3d)
         print("Menor distancia euclidiana en 4 dimenciones es:",mini4d)
         print("Menor distancia euclidiana en 5 dimenciones es:",miin5d)
-        entrada = 0
