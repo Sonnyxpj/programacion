@@ -1,4 +1,4 @@
-import	os
+import os
 import math
 
 # Vectores de puntos 
@@ -239,8 +239,7 @@ def menor_dis_5d(resultados5d):
     minimo = min(resultados5d)
     return minimo
     
-def dimension_total():
-    pass
+
 
 if __name__ == "__main__":
     limpia_pantalla()
