@@ -222,7 +222,6 @@ def menor_dis_2d(resultados2d): #Calcula el menor valor en el plano de 2 dimensi
     
     minimo = min(resultados2d)
     return minimo
-    
 
 def menor_dis_3d(resultados3d): #Calcula el menor valor en el plano de 3 dimensiones 
     
