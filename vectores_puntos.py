@@ -233,13 +233,13 @@ def menor_dis_4d(resultados4d): #Calcula el menor valor en el plano de 5 dimensi
     minimo = min(resultados4d)
     return minimo
     
-
 def menor_dis_5d(resultados5d):
 
     minimo = min(resultados5d)
     return minimo
     
-
+def prueba():
+    pass
 
 if __name__ == "__main__":
     limpia_pantalla()
