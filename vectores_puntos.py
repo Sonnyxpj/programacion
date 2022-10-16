@@ -261,3 +261,6 @@ if __name__ == "__main__":
         print("Menor distancia euclidiana en 3 dimenciones es:",mini3d)
         print("Menor distancia euclidiana en 4 dimenciones es:",mini4d)
         print("Menor distancia euclidiana en 5 dimenciones es:",miin5d)
+    elif entrada == "2":
+        pass
+    
