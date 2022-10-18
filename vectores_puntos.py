@@ -115,12 +115,6 @@ def distancia_2d(valores2d):
             x2 = x[j]
             y2 = y[j]
 
-            #p1 = (int(x2)-int(x1))**2
-            #p2 = (int(y2)-int(y1))**2
-            #dist = math.sqrt(p1+p2)
-            #redondeo = round(dist,2)
-            #print(p1,"+",p2,"=",redondeo)
-
             dist = math.sqrt((int(x2)-int(x1))**2+(int(y2)-int(y1))**2)
             redondeo = round(dist,2)
             resultados.append(redondeo)
