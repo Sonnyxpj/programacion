@@ -15,54 +15,38 @@ def clear(): #limpia la consola
 def tragamonedas(saldo, separador): #Mantiene en ejecucion el juego
     detener = False
 
-    while detener != True: #Detendra el programa si cumple las condiciones
-        clear()
+    while detener != True: 
         print(separador.center(50,"=") + "\n")
-        apuesta = apostar(saldo)
+        apostado = apostar(saldo)
         time.sleep(0.5)
-        saldo = saldo - apuesta
-        figuras = gira_rueda()
-        ganancias = combinaciones(figuras, apuesta)
+        saldo = saldo - apostado
+        figuras_obtenidas = gira_rueda()
+        ganancias = combinaciones(figuras_obtenidas, apostado)
 
         if ganancias == 0:
-            print("Perdiste $" + str(apuesta))
+            print("Perdiste $" + str(apostado))
         else:
             print("Ganaste $" + str(ganancias))
             saldo = saldo + ganancias
         
-        detener = cond_para_detener(saldo)# True -> detiene; False -> continua
-        
-def verifica_dinero(dinero, separador): #Verifica que solo se ingrese dinero
-        comprueba_numero = dinero.isdigit()
-        print()
-        
-        if comprueba_numero == True:
-            return comprueba_numero
-        else:
-            clear()
-            print(separador.center(50,"=") + "\n")
-            print("¡Valor mal ingresado!")
-            print()
+        detener = cond_para_detener(saldo)#Detendra el programa si cumple las condiciones
 
 def monto_inicial(separador):#Solicita dinero para jugar
-    suficiente = False
     print(separador.center(50,"=") + "\n")
+    suficiente = False
 
     while suficiente != True:
         print("La cantidad minima a depositar es de $100")
         saldo_inicial = input("Deposite monto inicial: $")
-        print()
 
-        comprobar = verifica_dinero(saldo_inicial, "Tragamonedas")
+        comprobar = verifica_dinero(saldo_inicial)
         if comprobar == True:
-            if int(saldo_inicial) < 100: 
-                pass
+            if int(saldo_inicial) < 100:
+                print("¡Valor mal ingresado! \n")
 
             else:
                 suficiente == True
                 return int(saldo_inicial) #Solo aceptara saldo mayor o igual a 100$
-
-    return saldo_inicial
 
 def apostar(saldo): 
     apostando = True
@@ -70,18 +54,16 @@ def apostar(saldo):
     while apostando == True: 
         print("Tu saldo actual: $" + str(saldo))
         print("¿Cuanto quiere apostar?")
-        print("$100, $500 o $1000")
-        print()
+        print("$100, $500 o $1000 \n")
         apostar = input("Quiero apostar ---> $")
-        comprobar = verifica_dinero(apostar, "Tragamonedas")
+        comprobar = verifica_dinero(apostar)
 
         if comprobar == True:
             apostar = int(apostar)
 
-            if apostar == 100 or apostar == 500 or apostar == 1000:#Verifica que la apuesta este correcta
+            if apostar == 100 or apostar == 500 or apostar == 1000:#Verifica se apuesten los valores correctos
                 if saldo < apostar:
-                    print("No tiene dinero suficiente para esa apuesta...")
-                    print()
+                    print("No tiene dinero suficiente para esa apuesta... \n")
                     time.sleep(0.5)
                 else:
                     print("Esta apostando: $" + str(apostar))
@@ -89,8 +71,17 @@ def apostar(saldo):
                     return apostar
             else:
                 print()
-                print("Debe apostar los valores que aparecen en pantalla")
+                print("¡Debe apostar los valores que aparecen en pantalla! \n")
                 time.sleep(0.5)
+
+def verifica_dinero(dinero): #Solo aceptara valores numericos positivos
+        comprueba_numero = dinero.isdigit()
+        print()
+        
+        if comprueba_numero == True:
+            return comprueba_numero
+        else:
+            print("¡Valor mal ingresado! \n")
 
 def gira_rueda(): 
     figuras = ["0", "1", "2", "3", "4", "5", "6", "7"]
@@ -99,7 +90,7 @@ def gira_rueda():
     
     return resultado
 
-def combinaciones(figuras, apostar): #Verifica combinaciones y entrega recompensas
+def combinaciones(figuras, apostar): #Verifica combinaciones ganadoras y entrega recompensas
     recompensa = 0
 
     if figuras.count("7") == 3:
@@ -127,32 +118,29 @@ def combinaciones(figuras, apostar): #Verifica combinaciones y entrega recompens
     
     return recompensa
 
-def cond_para_detener(saldo): #condiciones para detener o no el programa
-        if saldo < 100: #Para jugar minimo $100
-            print()
-            print("Tu saldo actual: $" + str(saldo))
-            print("Ya no tiene suficiente saldo, cerrando el programa...")
-            return True
+def cond_para_detener(saldo):
+    print()
+    if saldo < 100: #Para jugar se debe tener minimo $100
+        print("Tu saldo actual: $" + str(saldo))
+        print("Ya no tiene suficiente saldo, cerrando el programa... \n")
+        return True
             
-        else:
-            decidido = False
+    else:
+        decidido = False
 
-            while decidido != True: #el jugador decide
+        while decidido != True: #El jugador tomara la decision
+            print("Tu saldo actual: $" + str(saldo))
+            continuar = input("¿Quieres continuar? (Si o No): ")
+            continuar = continuar.lower()
+
+            if continuar == "si":
+                time.sleep(0.5)
                 print()
-                print("Tu saldo actual: $" + str(saldo))
-                continuar = input("¿Quieres continuar? (Si o No): ")
-                continuar = continuar.lower()
+                return False
 
-                if continuar == "si":
-                    decidido = True
-                    time.sleep(0.5)
-                    print()
-                    return False
-
-                if continuar == "no":
-                    print("Se retira con el saldo total de ---> $" + str(saldo))
-                    return True
-
+            if continuar == "no":
+                print("Se retira con el saldo total de ---> $" + str(saldo) + "\n")
+                return True
 
 if __name__ == "__main__":
     clear()
