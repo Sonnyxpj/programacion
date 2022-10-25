@@ -153,6 +153,7 @@ def cond_para_detener(saldo): #condiciones para detener o no el programa
                     print("Se retira con el saldo total de ---> $" + str(saldo))
                     return True
 
+
 if __name__ == "__main__":
     clear()
     saldo = monto_inicial("Tragamonedas")
