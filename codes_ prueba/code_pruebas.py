@@ -30,7 +30,9 @@ def euler(n):
     i = 0
     
     while i < n:
-        pi2 = pi2 +((2**math.factorial(i))*math.factorial(i)**2)/(math.factorial(2*i+1))
+        fact = math.factorial(i)
+        fact2 = math.factorial(2*i+1)
+        pi2 = pi2 + ((2**fact)*fact**2)/(fact2)
         i +=1
     return pi2 *2 
 
