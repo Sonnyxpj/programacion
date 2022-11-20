@@ -2,13 +2,13 @@
 from tkinter import *
 from math import *
  
-#VISUALIZAR LA OPERACION EN LA PANTALLA
+
 def presionar(num):
     global operador
     operador = operador+str(num)
     pantalla.set(operador)
  
-#CÁLCULO Y MUESTRA DE RESULTADOS.
+
 def resultado():
     global operador
     try:
@@ -18,7 +18,7 @@ def resultado():
         pantalla.set("ERROR")
     operador = ""
  
-#LIMPIEZA DE PANTALLA.
+
 def clear():
     global operador
     operador=("")
@@ -27,7 +27,7 @@ def clear():
  
 ventana=Tk()
 ventana.title("CALCULADORA")
-ventana.geometry("520x600")
+
 ventana.configure(background="SkyBlue4")
 color_boton=("gray77")
  
@@ -96,7 +96,5 @@ boton_exp.grid(row = 5, column = 5, sticky = W+E)
 
 boton_igual.grid(row = 6, columnspan= 6,sticky = W+E )
 
-
 clear()
- 
 ventana.mainloop()
